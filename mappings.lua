@@ -46,7 +46,24 @@ M.general = {
       end,
       "Goto next",
     },
+
+
+    -- Buffers
+    ["L"] = {
+      function()
+        require("nvchad.tabufline").tabuflineNext()
+      end,
+      "Goto next buffer",
+    },
+
+    ["H"] = {
+      function()
+        require("nvchad.tabufline").tabuflinePrev()
+      end,
+      "Goto prev buffer",
+    },
   },
+
   v = {
     ["mm"] = { "%", "Jump", opts = { nowait = true } },
   },
