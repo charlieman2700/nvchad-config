@@ -26,6 +26,13 @@ M.general = {
       "LSP rename",
     },
 
+     ["<leader>la"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "LSP code action",
+    },
+
     ["<leader>lk"] = {
       function()
         vim.diagnostic.goto_prev { float = { border = "rounded" } }
