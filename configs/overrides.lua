@@ -34,10 +34,14 @@ M.mason = {
     "deno",
     "prettier",
     "svelte-language-server",
+    "tailwindcss-language-server",
 
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- Rust
+    "rust-analyzer"
   },
 }
 
