@@ -11,6 +11,11 @@ M.general = {
     ["<leader>w"] = { ":w<CR>", "Save", opts = { nowait = true } },
     ["<leader>e"] = { "<CMD>NvimTreeToggle<CR>" },
 
+    -- Movements
+    --
+    ["<C-d>"] = { "<C-d>zz", "Move down", opts = { nowait = true } },
+    ["<C-u>"] = { "<C-u>zz", "Move up", opts = { nowait = true } },
+
     -- LSP
     ["<leader>lf"] = {
       function()
