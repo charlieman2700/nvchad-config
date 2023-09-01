@@ -16,6 +16,9 @@ local servers = {
   "gopls",
   "prismals",
   "emmet_language_server",
+  "docker_compose_language_service",
+  "dockerls",
+  "eslint"
 }
 
 for _, lsp in ipairs(servers) do
