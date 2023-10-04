@@ -3,6 +3,16 @@ local M = {}
 
 M.general = {
   n = {
+    -- Desactiva las asignaciones de teclas predeterminadas de tmux-navigator
+    -- vim.g.tmux_navigator_no_mappings = 1
+
+    -- -- Mapea las combinaciones de teclas a las funciones de TmuxNavigator
+
+    ["<C-l>"] = { "<cmd> TmuxNavigateRight<cr>", "Navigate right", opts = { nowait = true } },
+    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<cr>", "Navigate left", opts = { nowait = true } },
+    ["<C-k>"] = { "<cmd> TmuxNavigateUp<cr>", "Navigate up", opts = { nowait = true } },
+    ["<C-j>"] = { "<cmd> TmuxNavigateDown<cr>", "Navigate bottom", opts = { nowait = true } },
+
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["mm"] = { "%", "Jump", opts = { nowait = true } },
     ["U"] = { "<C-r>", "REDO", opts = { nowait = true } },
@@ -31,7 +41,7 @@ M.general = {
       "LSP rename",
     },
 
-     ["<leader>la"] = {
+    ["<leader>la"] = {
       function()
         vim.lsp.buf.code_action()
       end,
@@ -51,7 +61,6 @@ M.general = {
       end,
       "Goto next",
     },
-
 
     -- Buffers
     ["L"] = {

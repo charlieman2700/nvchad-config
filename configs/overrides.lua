@@ -41,12 +41,15 @@ M.mason = {
     "clang-format",
 
     -- Rust
-    "rust-analyzer"
+    "rust-analyzer",
   },
 }
 
 -- git support in nvimtree
 M.nvimtree = {
+  view = {
+    side = "left",
+  },
   git = {
     enable = true,
   },

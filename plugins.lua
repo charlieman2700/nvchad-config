@@ -81,6 +81,33 @@ local plugins = {
       -- refer to the configuration section below
     },
   },
+  {
+    "igankevich/mesonic",
+    lazy = false,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap" },
+    lazy = false,
+    config = function()
+      require "custom.configs.dap"
+    end,
+  },
+  {
+    "Weissle/persistent-breakpoints.nvim",
+    lazy = false,
+    config = function()
+      require("persistent-breakpoints").setup {
+        load_breakpoints_event = { "BufReadPost" },
+      }
+    end,
+  },
+
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
 
   -- To make a plugin not be loaded
   -- {

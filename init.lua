@@ -10,7 +10,14 @@
 vim.wo.wrap = false
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-a>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.g.tmux_navigator_no_mappings = 1
 
 
+
+-- Set tab width to 4 spaces
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.smarttab = true
 
 vim.g.number = true
+
