@@ -1,6 +1,13 @@
 ---@type MappingsTable
 local M = {}
 
+M.disabled = {
+  i = {
+    ["<Tab>"] = "",
+    ["<C-i"] = "",
+  },
+}
+
 M.general = {
   n = {
     -- Desactiva las asignaciones de teclas predeterminadas de tmux-navigator
