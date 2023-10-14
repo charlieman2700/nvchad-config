@@ -113,6 +113,24 @@ local plugins = {
     lazy = false,
   },
 
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.x",
+    -- or                              , branch = '0.1.x',
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
+  },
+
+  {
+    "phaazon/hop.nvim",
+    branch = "v2", -- optional but strongly recommended
+    lazy = false,
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require("hop").setup {}
+    end,
+  },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

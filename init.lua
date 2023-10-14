@@ -21,3 +21,10 @@ vim.o.smarttab = true
 
 vim.g.number = true
 
+
+-- Habilitar los números de línea en modo normal
+vim.cmd('set number')
+
+-- Habilitar los números de línea en modo insert
+vim.cmd('autocmd InsertEnter * set norelativenumber')
+vim.cmd('autocmd InsertLeave * set relativenumber')

@@ -33,6 +33,10 @@ M.general = {
     ["<C-d>"] = { "<C-d>zz", "Move down", opts = { nowait = true } },
     ["<C-u>"] = { "<C-u>zz", "Move up", opts = { nowait = true } },
 
+    -- Hop
+    ["s"] = { "<cmd> HopChar2 <cr>", "Hop", opts = { nowait = true } },
+    --
+
     -- LSP
     ["<leader>lf"] = {
       function()
