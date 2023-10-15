@@ -13,13 +13,12 @@ local servers = {
   "svelte",
   "rust_analyzer",
   "tailwindcss",
-  "gopls",
   "prismals",
   "emmet_language_server",
   "docker_compose_language_service",
   "dockerls",
   "eslint",
-  "angularls"
+  "angularls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -38,39 +37,35 @@ lspconfig.phpactor.setup {
   },
 }
 
--- local project_library_path = "/path/to/project/lib"
--- local cmd =
---   { "ngserver", "--stdio", "--tsProbeLocations", project_library_path, "--ngProbeLocations", project_library_path }
---
--- lspconfig.angularls.setup {
---   cmd = cmd,
---   on_new_config = function(new_config, new_root_dir)
---     new_config.cmd = cmd
---   end,
--- }
-
--- require'lspconfig'.angularls.setup{}
-
--- - `cmd` : { "ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", "" }
--- - `filetypes` : { "typescript", "html", "typescriptreact", "typescript.tsx" }
--- - `root_dir` : root_pattern("angular.json")
--- local cwd = vim.fn.getcwd()
--- local cmd = {
---   "node",
---   "/Users/charlieman2700/dev/ucr/ride/ride-biker/node_modules/@angular/language-service/bundles/language-service.js",
---   "--stdio",
---   "--tsProbeLocations",
---   cwd,
---   "--ngProbeLocations",
---   cwd,
--- }
---
---
--- lspconfig.angularls.setup {
---   cmd = cmd,
---   on_attach = on_attach,
---   capabilities = capabilities,
---   on_new_config = function(new_config, new_root_dir)
---     new_config.cmd = cmd
---   end,
--- }
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      -- usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+        unusedvariables = true,
+        nilness = true,
+        unusedwrite = true,
+        shadow = true,
+        useany = true,
+      },
+      staticcheck = true,
+      experimentalPostfixCompletions = true,
+      hints = {
+        contantValues = true,
+        functionTypeParameters = true,
+        assignVariablesTypes = true,
+        compositeLiteralTypes = true,
+        compositeLiteralFields = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+    },
+  },
+}

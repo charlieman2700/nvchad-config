@@ -41,10 +41,6 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
-  {
-    "fatih/vim-go",
-    lazy = false,
-  },
 
   -- Install a plugin
   {

@@ -24,6 +24,7 @@ vim.g.number = true
 
 -- Habilitar los números de línea en modo normal
 vim.cmd('set number')
+vim.cmd('set wrap')
 
 -- Habilitar los números de línea en modo insert
 vim.cmd('autocmd InsertEnter * set norelativenumber')

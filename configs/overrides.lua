@@ -73,7 +73,9 @@ M.mason = {
     "clang-format",
 
     -- Rust
-    "rust-analyzer",
+    --GO
+        --
+    "gopls",
   },
 }
 
