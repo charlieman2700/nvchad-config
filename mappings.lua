@@ -13,12 +13,18 @@ M.general = {
     -- Desactiva las asignaciones de teclas predeterminadas de tmux-navigator
     -- vim.g.tmux_navigator_no_mappings = 1
 
-    -- -- Mapea las combinaciones de teclas a las funciones de TmuxNavigator
-
+    -- Mapea las combinaciones de teclas a las funciones de TmuxNavigator
     ["<C-l>"] = { "<cmd> TmuxNavigateRight<cr>", "Navigate right", opts = { nowait = true } },
     ["<C-h>"] = { "<cmd> TmuxNavigateLeft<cr>", "Navigate left", opts = { nowait = true } },
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<cr>", "Navigate up", opts = { nowait = true } },
     ["<C-j>"] = { "<cmd> TmuxNavigateDown<cr>", "Navigate bottom", opts = { nowait = true } },
+    -- Mapea las combinaciones de teclas a las funciones de TmuxResizer
+    ["<C-u>l"] = { "<cmd> TmuxResizeRight<cr>", "Resize right", opts = { nowait = true } },
+    ["<C-u>h"] = { "<cmd> TmuxResizeLeft<cr>", "Resize left", opts = { nowait = true } },
+    ["<C-u>k"] = { "<cmd> TmuxResizeUp<cr>", "Resize up", opts = { nowait = true } },
+    ["<C-u>j"] = { "<cmd> TmuxResizeDown<cr>", "Resize bottom", opts = { nowait = true } },
+
+
 
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["mm"] = { "%", "Jump", opts = { nowait = true } },

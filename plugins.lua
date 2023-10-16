@@ -4,7 +4,17 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   -- Override plugin definition options
-
+  {
+    "ThePrimeagen/refactoring.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("refactoring").setup()
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -104,6 +114,7 @@ local plugins = {
     end,
   },
 
+  -- TMUX navigate and resize panels
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
