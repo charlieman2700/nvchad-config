@@ -127,6 +127,16 @@ local plugins = {
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
   },
+  {
+
+    "leoluz/nvim-dap-go",
+    lazy = false,
+
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require("dap-go").setup()
+    end,
+  },
 
   {
     "phaazon/hop.nvim",
@@ -136,6 +146,15 @@ local plugins = {
       -- you can configure Hop the way you like here; see :h hop-config
       require("hop").setup {}
     end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    opts = {},
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+        require("dressing").setup()
+    end,
+    lazy = false,
   },
 
   -- To make a plugin not be loaded

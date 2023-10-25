@@ -6,6 +6,13 @@ M.disabled = {
     ["<Tab>"] = "",
     ["<C-i"] = "",
   },
+  n = {
+    ["<leader>wa"] = "",
+    ["<leader>wk"] = "",
+    ["<leader>wK"] = "",
+    ["<leader>wl"] = "",
+    ["<leader>wr"] = "",
+  },
 }
 
 M.general = {
@@ -24,14 +31,11 @@ M.general = {
     ["<C-u>k"] = { "<cmd> TmuxResizeUp<cr>", "Resize up", opts = { nowait = true } },
     ["<C-u>j"] = { "<cmd> TmuxResizeDown<cr>", "Resize bottom", opts = { nowait = true } },
 
-
-
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["mm"] = { "%", "Jump", opts = { nowait = true } },
     ["U"] = { "<C-r>", "REDO", opts = { nowait = true } },
 
     ["<leader>q"] = { "<cmd>q<cr>", "QUIT", opts = { nowait = true } },
-    ["<leader>w"] = { ":w<CR>", "Save", opts = { nowait = true } },
     ["<leader>e"] = { "<CMD>NvimTreeToggle<CR>" },
 
     -- Movements
@@ -101,5 +105,6 @@ M.general = {
 }
 
 -- more keybinds!
+--
 
 return M
