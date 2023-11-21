@@ -39,6 +39,8 @@ local sources = {
   b.formatting.gofumpt,
   b.formatting.goimports_reviser,
   b.formatting.golines,
+  -- b.diagnostics.cpplint.with { extra_args = { "—filter", "-legal/copyright" } },
+  b.diagnostics.cppcheck,
 }
 
 null_ls.setup {

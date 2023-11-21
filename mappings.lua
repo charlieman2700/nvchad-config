@@ -12,11 +12,13 @@ M.disabled = {
     ["<leader>wK"] = "",
     ["<leader>wl"] = "",
     ["<leader>wr"] = "",
+    ["<Esc>"] = "",
   },
 }
 
 M.general = {
   n = {
+    ["<Esc>"] = { "<cmd> nohl <cr>", "hide", opts = { nowait = true } },
     -- Desactiva las asignaciones de teclas predeterminadas de tmux-navigator
     -- vim.g.tmux_navigator_no_mappings = 1
 

@@ -152,9 +152,84 @@ local plugins = {
     opts = {},
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
-        require("dressing").setup()
+      require("dressing").setup()
     end,
     lazy = false,
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("noice").setup {
+        lsp = {
+          hover = {
+            enabled = false,
+          },
+          signature = {
+            enabled = false,
+          },
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+
+        notify = {
+          enabled = false,
+          view = "notify",
+        },
+      }
+    end,
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
+    "p00f/clangd_extensions.nvim",
+    lazy = false,
+    init = function()
+      -- load clangd extensions when clangd attaches
+      local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = augroup,
+        desc = "Load clangd_extensions with clangd",
+        callback = function(args)
+          if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
+            require "clangd_extensions"
+            vim.api.nvim_del_augroup_by_id(augroup)
+          end
+        end,
+      })
+    end,
+  },
+  {
+    "Civitasv/cmake-tools.nvim",
+    lazy = false,
+    ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    dependencies = {
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+      },
+    },
+    opts = {},
   },
 
   -- To make a plugin not be loaded

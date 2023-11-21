@@ -48,6 +48,6 @@ local existing_mapping = vim.fn.maparg("<leader>w", "n")
 
 if not existing_mapping or existing_mapping == "" then
     -- Si no existe un mapeo previo, establece el nuevo mapeo
-    vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>w", "<cmd>w<CR>", { noremap = true, silent = true })
 end
 
