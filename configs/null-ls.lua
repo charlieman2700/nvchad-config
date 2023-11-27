@@ -7,7 +7,8 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local sources = {
 
   -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
+  -- b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
+  b.formatting.prettier,
   b.formatting.eslint_d, -- choosed deno for ts/js files cuz its very fast!
   -- b.formatting.prettier.with {
   --   filetypes = {
@@ -43,8 +44,8 @@ local sources = {
   -- b.diagnostics.cpplint.with { extra_args = { "—filter", "-legal/copyright" } },
   b.diagnostics.cppcheck,
 
-    b.diagnostics.eslint_d,
-    b.code_actions.eslint_d,
+  b.diagnostics.eslint_d,
+  b.code_actions.eslint_d,
 }
 
 null_ls.setup {
