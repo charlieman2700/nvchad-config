@@ -7,22 +7,23 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local sources = {
 
   -- webdev stuff
-  -- b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  b.formatting.prettier.with {
-    filetypes = {
-      "html",
-      "markdown",
-      "css",
-      "svelte",
-      "typescriptreact",
-      "javascriptreact",
-      "typescript",
-      "javascript",
-      "json",
-      "yaml",
-      "vue",
-    },
-  }, -- so prettier works only on these filetypes
+  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
+  b.formatting.eslint_d, -- choosed deno for ts/js files cuz its very fast!
+  -- b.formatting.prettier.with {
+  --   filetypes = {
+  --     "html",
+  --     "markdown",
+  --     "css",
+  --     "svelte",
+  --     "typescriptreact",
+  --     "javascriptreact",
+  --     "typescript",
+  --     "javascript",
+  --     "json",
+  --     "yaml",
+  --     "vue",
+  --   },
+  -- }, -- so prettier works only on these filetypes
 
   -- Lua
   b.formatting.stylua,
@@ -41,6 +42,9 @@ local sources = {
   b.formatting.golines,
   -- b.diagnostics.cpplint.with { extra_args = { "—filter", "-legal/copyright" } },
   b.diagnostics.cppcheck,
+
+    b.diagnostics.eslint_d,
+    b.code_actions.eslint_d,
 }
 
 null_ls.setup {
