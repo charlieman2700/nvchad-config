@@ -19,6 +19,7 @@ M.disabled = {
 M.general = {
   n = {
     ["<Esc>"] = { "<cmd> nohl <cr>", "hide", opts = { nowait = true } },
+    ["w"] = { "<cmd> w <cr>", "Save", opts = { nowait = true } },
     -- Desactiva las asignaciones de teclas predeterminadas de tmux-navigator
     -- vim.g.tmux_navigator_no_mappings = 1
 
