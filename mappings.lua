@@ -19,7 +19,6 @@ M.disabled = {
 M.general = {
   n = {
     ["<Esc>"] = { "<cmd> nohl <cr>", "hide", opts = { nowait = true } },
-    ["w"] = { "<cmd> w <cr>", "Save", opts = { nowait = true } },
     -- Desactiva las asignaciones de teclas predeterminadas de tmux-navigator
     -- vim.g.tmux_navigator_no_mappings = 1
 
@@ -39,6 +38,7 @@ M.general = {
     ["U"] = { "<C-r>", "REDO", opts = { nowait = true } },
 
     ["<leader>q"] = { "<cmd>q<cr>", "QUIT", opts = { nowait = true } },
+    ["<leader>w"] = { "<cmd> w <cr>", "Save", opts = { nowait = true } },
     ["<leader>e"] = { "<CMD>NvimTreeToggle<CR>" },
 
     -- Movements
