@@ -104,7 +104,7 @@ function FormatOnSave()
   end
 
   if vim.fn.index(saveFileTypes, file_extension) < 0 then
-    print "FormatOnSave: filetype not supported"
+    vim.cmd "w"
     return
   end
 
