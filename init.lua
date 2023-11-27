@@ -94,10 +94,12 @@ local saveFileTypes = {
 
 function FormatOnSave()
   local file_extension = vim.fn.expand "%:e"
+
   file_extension = "*." .. file_extension
-  print("File extension: " .. file_extension)
+  -- Save the current buffer id
+  local current_buffer = vim.fn.bufnr "%"
+
   if vim.o.modified == false then
-    print "FormatOnSave: file not modified"
     return
   end
 
@@ -108,7 +110,9 @@ function FormatOnSave()
 
   if FormatOnSave then
     print "FormatOnSave: formatting"
-    vim.lsp.buf.format()
+    --format the buffer saved on current_buffer
+    -- vim.fn.execute "silent! FormatWrite"
+    vim.lsp.buf.format { async = true, bufnr = current_buffer }
   end
 
   print "FormatOnSave: saving"
