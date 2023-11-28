@@ -54,7 +54,7 @@ function AutoSave()
   if AutoSave then
     if FormatOnSave then
       --format the buffer saved on current_buffer
-      vim.lsp.buf.format()
+      vim.lsp.buf.format { timeout_ms = 7000 }
       -- Silent write
       vim.cmd "silent w"
     end
